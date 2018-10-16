@@ -136,7 +136,14 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 							found_date = True
 						except Exception, e:
 							found_date = False
-					
+					# 특정사이트의 경우 당일 게시물에 날짜형식이아니라 엉뚱한 스트링을 넣는다.
+					if found_date == False : 
+						if ( date_text.find('오늘') >= 0 or date_text.find('today') >= 0 ):
+							target_date = datetime.date.today()
+							found_date = True
+						else :
+							found_date = False
+	
 					if found_date == False : 
 						return "err-date-invalid"
 					
@@ -151,8 +158,8 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 
 					content_info_list.append(content_info)
 
-	#print "   - last content : " + content_info['date'] + " >> " + content_info['title'] 
-	#print "     -> url : "  + 	content_info['url'] 
+	# print "   - last content : " + content_info['date'] + " >> " + content_info['title'] 
+	# print "     -> url : "  + 	content_info['url'] 
 	end_detect_date = end_date
 
 	if target_date < end_detect_date : 
