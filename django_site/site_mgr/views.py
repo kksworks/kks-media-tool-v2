@@ -58,7 +58,7 @@ def site_mgr_post_del(request, pk):
     site_mgr = get_object_or_404(TorrentSite, id=pk)
     
     if 'yes' in request.POST:
-        torrent_info.delete()
+        site_mgr.delete()
         return redirect('site_mgr_post_list')
     elif 'no' in request.POST:
         return redirect('site_mgr_post_detail', pk=pk)

@@ -202,3 +202,26 @@ class TorrentSiteMgr:
 
 		conn.commit()
 		conn.close()
+
+	def delete_torrent_site(self, site_id) :
+    
+		cur_site_info = self.get_site_list_idx(site_id)
+		if cur_site_info == None : 
+			return False
+
+		conn = pymysql.connect(host='localhost', user=DB_INFO__TORRENT_SITE_INFO__ID, password=DB_INFO__TORRENT_SITE_INFO__PASS, db=DB_INFO__TORRENT_SITE_INFO__DBNAME, charset='utf8')
+	
+		curs = conn.cursor(pymysql.cursors.DictCursor)
+
+		sql = "DELETE FROM {} WHERE id = %s".format(DB_INFO__TORRENT_LIST__TABLE)
+				
+	#	#print "db update qeury styr : " + sql
+	#	#print  " >> id : " + str(cur_torrent_info['torrent_id'])
+	#	#print  " >> update info " + cur_torrent_info['torrent_date'] + " , " + cur_torrent_info['setting_file_checked']
+		
+		curs.execute(sql, (str(cur_site_info['id'])))
+
+		torrent_log.log_save_normal__torrent_list(str(torrent_id),"site info Delete");
+
+		conn.commit()
+		conn.close()
