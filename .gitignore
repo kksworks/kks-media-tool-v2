@@ -1,4 +1,5 @@
 settings/run.server.sh
 settings/user.config.env
 settings/transmission-deamon/
+settings/kksworks_setting/
 *.pyc
