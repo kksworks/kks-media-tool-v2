@@ -1,7 +1,23 @@
+<!-- TOC -->
+
+- [python modules](#python-modules)
+- [django install](#django-install)
+        - [db 설치](#db-설치)
+        - [transmission-deamon 설치](#transmission-deamon-설치)
+    - [프로그램 설치하기](#프로그램-설치하기)
+        - [환경변수 세팅](#환경변수-세팅)
+    - [실행](#실행)
+    - [동작관련](#동작관련)
+    - [실행화면예시](#실행화면예시)
+
+<!-- /TOC -->
+
 너무 간단한 프로그램이지만... 아는 사람들만 ㅋㅋㅋ
 
 > 초기 동작을 위한 인스톨? 을 하려면 패스워드가 필요함 아는사람만 프로젝트 참가가능?
 
+* 오드로이드에서 동작확인!!
+* 
 ## 프로그램설명
 
 각 폴더별로 설명
@@ -22,7 +38,9 @@
   - 설치파일 / sql 예제들 / site 파싱용 파일들
    - 설치시 passwd 필요?
 
-
+- [tools](./tools)
+  - 유용한 스크립트들 ㅋㅋ
+  
 ## 설치준비 (필수 패키지 설치)
 
 필요한 사항을 정리한다.
@@ -67,7 +85,7 @@ settings/install/server_install.sh
 `settings/user.config.env` 를 각 환경에 맞게 세팅한다.
  * 동작 폴더 / mysql / transmission-deamon 등에 대한 환경을 설정
   
-### 실행
+## 실행
 `settings/run.server.sh` 를 실행하면 웹서버가 실행되면서 동작
  * 환경변수 파일을 세팅하면 굳이 웹서버나 python 스크립트를 고칠필요없다 ㅋ
 
