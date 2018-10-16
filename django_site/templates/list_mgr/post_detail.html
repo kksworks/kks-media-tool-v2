@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% block content %}
+<h1><small>Torrent Detail</small></h1>
+<br>
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thread>
+				<tr>
+					<th width="30%"> 항목 </th>
+					<th width="70%"> 내용 </th>
+				</tr>
+				</thead>
+
+				<tr>
+					<td>id</td>
+					<td>{{ torrent_info.id }}</td>
+				</tr>
+				<tr>
+					<td>토렌트이름</td>
+					<td>{{ torrent_info.prog_name }}</td>
+				</tr>
+				<tr>
+					<td>해상도</td>
+					<td>{{ torrent_info.prog_resol }}</td>
+				</tr>
+				<tr>
+					<td>릴그룹 </td>
+					<td>{{ torrent_info.prog_rel_group }}</td>
+				</tr>
+				<tr>
+					<td>장르</td>
+					<td>{{ torrent_info.prog_gene }}</td>
+				</tr>
+				<tr>
+					<td>타겟날짜</td>
+					<td>{{ torrent_info.prog_date }}</td>
+				</tr>
+				<tr>
+					<td>확인주기</td>
+					<td>{{ torrent_info.prog_date_interval }}</td>
+				</tr>
+				<tr>
+					<td>저장경로</td>
+					<td>{{ torrent_info.prog_save_path }}</td>
+				</tr>
+				<tr>
+					<td>파일확인</td>
+					<td>{{ torrent_info.setting_file_chk }}</td>
+				</tr>
+				<tr>
+					<td>마지막업데이트</td>
+					<td>{{ torrent_info.setting_last_update_date }}</td>
+				</tr>
+				<tr>
+					<td>최대저장일</td>
+					<td>{{ torrent_info.setting_prog_max_save_date }}</td>
+				</tr>
+		</table>
+	</div>
+
+</div>
+<div class="container">
+		<button type="button" onclick="location.href='/list_mgr/edit/{{ torrent_info.id }}'" class="btn btn-info">편집</button>
+		<button type="button" onclick="location.href='/list_mgr/del/{{ torrent_info.id }}'" class="btn btn-danger">삭제</button>
+	
+	</div>
+</br>
+
+<h1><small>log view</small></h1>
+</br>
+<div class="container">
+<iframe name="iframe1" width=100% height="400" src='/list_mgr/log/{{ torrent_info.id }}' frameborder="yes" scrolling="yes"></iframe>
+
+</div>
+
+
+<h1><small>Saved File Detail</small></h1>
+</br>
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thread>
+				<tr>
+					<th width="100%"> 파일명 </th>
+				</tr>
+				{% for file_name in filesystem_list %}
+				<tr>
+						<td>{{ file_name }}</td>
+				</tr>
+				{% endfor %}
+			</thead>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

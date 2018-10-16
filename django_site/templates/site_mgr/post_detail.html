@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block content %}
+<h1><small>Torrent Detail</small></h1>
+<br>
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thread>
+				<tr>
+					<th width="30%"> 항목 </th>
+					<th width="70%"> 내용 </th>
+				</tr>
+				</thead>
+
+				<tr>
+					<td>id</td>
+					<td>{{ torrent_site.id }}</td>
+				</tr>
+				<tr>
+					<td>사이트주소</td>
+					<td>{{ torrent_site.torrent_site1 }}</td>
+				</tr>
+				<tr>
+					<td>실행여부</td>
+					<td>{{ torrent_site.is_use }}</td>
+				</tr>
+				<tr>
+					<td>컨텐츠 테이블 -> 열 갯수</td>
+					<td>{{ torrent_site.content_table_total_row_cnt }}</td>
+				</tr>
+				<tr>
+					<td>컨텐츠 테이블 -> 확인 문자열 </td>
+					<td>{{ torrent_site.content_table_chk_str }}</td>
+				</tr>
+				<tr>
+					<td>컨텐츠 테이블 -> 날짜 열 순서</td>
+					<td>{{ torrent_site.content_row_cnt_of_date }}</td>
+				</tr>
+				<tr>
+					<td>최대 탐색페이지</td>
+					<td>{{ torrent_site.max_search_page }}</td>
+				</tr>
+				<tr>
+					<td>예능주소</td>
+					<td>{{ torrent_site.ent_url }}</td>
+				</tr>
+				<tr>
+					<td>드라마주소</td>
+					<td>{{ torrent_site.drama_url }}</td>
+				</tr>
+				<tr>
+					<td>시사교양주소</td>
+					<td>{{ torrent_site.docu_url }}</td>
+				</tr>
+				<tr>
+					<td>url_page_prefix</td>
+					<td>{{ torrent_site.url_page_prefix }}</td>
+				</tr>
+				<tr>
+					<td>url_page_suffix</td>
+					<td>{{ torrent_site.url_page_suffix }}</td>
+				</tr>
+				<tr>
+					<td>date_format</td>
+					<td>{{ torrent_site.date_format }}</td>
+				</tr>
+				<tr>
+					<td>date_format2</td>
+					<td>{{ torrent_site.date_format2 }}</td>
+				</tr>
+				<tr>
+					<td>date_format3</td>
+					<td>{{ torrent_site.date_format3 }}</td>
+				</tr>
+				<tr>
+					<td>실패카운트</td>
+					<td>{{ torrent_site.parse_fail_count }}</td>
+				</tr>
+				<tr>
+					<td>마지막 파싱성공</td>
+					<td>{{ torrent_site.last_success_date }}</td>
+				</tr>
+				<tr>
+					<td>마지막 마그넷 획득</td>
+					<td>{{ torrent_site.last_get_magnet_date }}</td>
+				</tr>
+		</table>
+	</div>
+
+</div>
+<div class="container">
+		<button type="button" onclick="location.href='/site_mgr/edit/{{ torrent_site.id }}'" class="btn btn-info">편집</button>
+		<button type="button" onclick="location.href='/site_mgr/del/{{ torrent_site.id }}'" class="btn btn-danger">삭제</button>
+		<button type="button" onclick="location.href='/site_mgr/parse_test/{{ torrent_site.id }}'" class="btn btn-success">테스트</button>
+	</div>
+</br>
+<h1><small>log view</small></h1>
+</br>
+<div class="container">
+<iframe name="iframe1" width=100% height="400" src='/site_mgr/log/{{ torrent_site.id }}' frameborder="yes" scrolling="yes"></iframe>
+
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1><small>All Torrent List</small></h1>
+<br>
+
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thread>
+				<tr>
+					<th> # </th>
+					<th> name </th>
+					<th> resol </th>
+					<th> rel group </th>
+					<th> gene </th>
+					<th> last </th>
+					<th> target </th>
+					<th> interval </th>
+					<th> 설정 </th>
+				</tr>
+			</thead>
+				{% for torrent_info in torrent_lists %}
+				<tr>
+					<td>{{ torrent_info.id }}</a></td>
+					<td>{{ torrent_info.prog_name }}</td>
+					<td>{{ torrent_info.prog_resol }}</td>
+					<td>{{ torrent_info.prog_rel_group }}</td>
+					<td>{{ torrent_info.prog_gene }}</td>
+					<td>{{ torrent_info.setting_last_update_date }}</td>
+					<td>{{ torrent_info.prog_date }}</td>
+					<td>{{ torrent_info.prog_date_interval }}</td>
+					<td>
+						<button type="button" onclick="location.href='/list_mgr/edit/{{ torrent_info.id }}'" class="btn btn-info">편집</button>
+						<button type="button" onclick="location.href='/list_mgr/detail/{{ torrent_info.id }}'" class="btn btn-primary">자세히</button>
+						<button type="button" onclick="location.href='/list_mgr/del/{{ torrent_info.id }}'" class="btn btn-danger">삭제</button>
+					</td>
+				</tr>
+				{% endfor %}
+		</table>
+	</div>
+</div>
+
+<button type="button" onclick="location.href='/list_mgr/new/'" class="save btn btn-primary">추가</button>
+{% endblock %}

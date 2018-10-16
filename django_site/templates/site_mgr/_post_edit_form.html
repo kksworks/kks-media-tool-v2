@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="container">
+
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.torrent_site1.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.torrent_site1 }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.is_use.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.is_use }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.content_table_total_row_cnt.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.content_table_total_row_cnt }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.content_table_chk_str.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.content_table_chk_str }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.content_row_cnt_of_date.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.content_row_cnt_of_date }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.content_row_cnt_of_title.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.content_row_cnt_of_title }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.max_search_page.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.max_search_page }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.ent_url.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.ent_url }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.drama_url.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.drama_url }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.docu_url.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.docu_url }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.url_page_prefix.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.url_page_prefix }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.url_page_suffix.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.url_page_suffix }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.date_format.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.date_format }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.date_format2.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.date_format2 }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label col-form-label-lgl"> {{ form.date_format3.label }} </label>
+                <div class="col-sm-10">
+                    {{ form.date_format3 }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="save btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1><small>All Torrent Site</small></h1>
+<br>
+
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thread>
+				<tr>
+					<th> # </th>
+					<th> torrent_site </th>
+					<th> 실패 </th>
+					<th> 파싱성공일자 </th>
+					<th> 마그넷추가일자 </th>
+					<th> 메뉴</th>
+				</tr>
+			</thead>
+				{% for torrent_site in torrent_sites %}
+				<tr>
+					<td>{{ torrent_site.id }}</td>
+					<td>{{ torrent_site.torrent_site1 }}</td>
+					<td>{{ torrent_site.parse_fail_count }}</td>
+					<td>{{ torrent_site.last_success_date }}</td>
+					<td>{{ torrent_site.last_get_magnet_date }}</td>
+					<td>
+						<button type="button" onclick="location.href='/site_mgr/edit/{{ torrent_site.id }}'" class="btn btn-info">편집</button>
+						<button type="button" onclick="location.href='/site_mgr/detail/{{ torrent_site.id }}'" class="btn btn-primary">자세히</button>
+						<button type="button" onclick="location.href='/site_mgr/del/{{ torrent_site.id }}'" class="btn btn-danger">삭제</button>
+						<button type="button" onclick="location.href='/site_mgr/parse_test/{{ torrent_site.id }}'" class="btn btn-success">테스트</button>						
+					</td>
+				</tr>
+				{% endfor %}
+		</table>
+	</div>
+</div>
+
+<button type="button" onclick="location.href='/site_mgr/new/'" class="save btn btn-primary">site 추가</button>
+{% endblock %}

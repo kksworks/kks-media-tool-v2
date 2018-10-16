@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1><small>Main Page</small></h1>
+<br>
+
+
+<div class="container" align="center">
+    <h2>서비스 상태 요약</h2>
+    todo contents...
+</div>
+
+<br>
+
+<div class="container" align="center">
+    <h2>토렌트 서비스 1회 시작</h2>
+    <form  method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-info" name="run torrent" value="run torrent">
+    </form>
+</div>
+
+<br>
+
+<div class="container" align="center">
+    <h2>디스크 사용량</h2>
+    todo contents...
+</div>
+
+
+{% endblock %}
+
