@@ -11,6 +11,7 @@ import urllib
 import urllib2
 import ssl
 import cookielib
+import re
 
 import torrent_log
 
@@ -145,7 +146,9 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 							found_date = False
 	
 					if found_date == False : 
-						return "err-date-invalid"
+						# return "err-date-invalid"
+						target_date = datetime.date.today()
+						found_date == True 
 					
 					today_date = datetime.date.today()
 					#print "diff date : " + str((today_date - target_date).days) 
@@ -186,6 +189,13 @@ def get_margnet_str(target_url) :
 		magnet_link = str(get_value.get('value'))
 		if (magnet_link.find("magnet") >= 0) :
 			return magnet_link
+
+	get_values = soup.find_all("button")
+	for get_value in get_values:
+		magnet_link = str(get_value.get('onclick'))
+		if (magnet_link.find("magnet_link(") >= 0) :
+			return "magnet:?xt=urn:btih:" + magnet_link[13:-3]
+
 
 	# normal site..
 	get_links = soup.find_all("a")
