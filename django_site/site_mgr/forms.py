@@ -20,10 +20,10 @@ class TorrentSiteForm(forms.ModelForm):
     
     torrent_site1 = forms.CharField(label='사이트주소', max_length=100, widget=forms.TextInput(attrs={'class':'form-control'}))
     is_use = forms.ChoiceField(label='사용여부',choices=NUMBER_SEL_RUN,widget=forms.Select(attrs={'class':'form-control'}))
-    content_table_total_row_cnt = forms.ChoiceField(label='컨텐츠 테이블 -> 열 갯수',choices=NUMBER_SEL,widget=forms.Select(attrs={'class':'form-control'}))
+    content_table_total_row_cnt = forms.ChoiceField(label='컨텐츠 테이블 -> 열 갯수  (0 부터시작)',choices=NUMBER_SEL,widget=forms.Select(attrs={'class':'form-control'}))
     content_table_chk_str = forms.CharField(label='컨텐츠 테이블 -> 확인 문자열',widget=forms.TextInput(attrs={'class':'form-control'}))
-    content_row_cnt_of_date = forms.ChoiceField(label='컨텐츠 테이블 -> 날짜 열 순서',choices=NUMBER_SEL,widget=forms.Select(attrs={'class':'form-control'}))
-    content_row_cnt_of_title = forms.ChoiceField(label='컨텐츠 테이블 -> 제목 열 순서',choices=NUMBER_SEL,widget=forms.Select(attrs={'class':'form-control'}))
+    content_row_cnt_of_date = forms.ChoiceField(label='컨텐츠 테이블 -> 날짜 열 순서  (0 부터시작)',choices=NUMBER_SEL,widget=forms.Select(attrs={'class':'form-control'}))
+    content_row_cnt_of_title = forms.ChoiceField(label='컨텐츠 테이블 -> 제목 열 순서  (0 부터시작)',choices=NUMBER_SEL,widget=forms.Select(attrs={'class':'form-control'}))
     max_search_page = forms.ChoiceField(label='최대 탐색페이지',choices=NUMBER_SEL2,widget=forms.Select(attrs={'class':'form-control'}))
 
     ent_url = forms.CharField(label='예능주소',widget=forms.TextInput(attrs={'class':'form-control'}))
