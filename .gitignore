@@ -1,0 +1,4 @@
+settings/run.server.sh
+settings/user.config.env
+settings/transmission-deamon/
+*.pyc
