@@ -120,6 +120,7 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 					if found_date == False : 
 						try :
 							target_date = datetime.datetime.strptime(date_text, site_info['date_format'] ).date()
+							print "found date case 1" 
 							found_date = True
 						except Exception, e:
 							found_date = False
@@ -128,6 +129,7 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 						try :
 							target_date = datetime.datetime.strptime(date_text, site_info['date_format2'] ).date()
 							found_date = True
+							print "found date case 2" 
 						except Exception, e:
 							found_date = False
 
@@ -135,6 +137,7 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 						try :
 							target_date = datetime.datetime.strptime(date_text, site_info['date_format3'] ).date()
 							found_date = True
+							print "found date case 3" 
 						except Exception, e:
 							found_date = False
 					# 특정사이트의 경우 당일 게시물에 날짜형식이아니라 엉뚱한 스트링을 넣는다.
@@ -142,12 +145,14 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 						if ( date_text.find('오늘') >= 0 or date_text.find('today') >= 0 ):
 							target_date = datetime.date.today()
 							found_date = True
+							print "found date case 4" 
 						else :
 							found_date = False
 	
 					if found_date == False : 
 						# return "err-date-invalid"
 						target_date = datetime.date.today()
+						print "found date case 5" 
 						found_date == True 
 					
 					today_date = datetime.date.today()
