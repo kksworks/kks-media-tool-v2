@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 import sys
 import torrent_auto_mgr
-
+import main_program
 sys.setdefaultencoding("utf-8")
 
 import threading
@@ -22,7 +22,8 @@ if __name__ == "__main__":
     #    print "magnet : " + test_result['magnet']
     #    print "----------------------------"
     
-    torrent_auto_mgr.chk_parse_site(3)
+#    torrent_auto_mgr.chk_parse_site(3)
+    main_program.main_loop_torrent_run()
 
 #print "test end?"
 

@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 import datetime
 import shutil
-import time, os
+import time, glob, os
 import sys
 import subprocess
 
@@ -97,10 +97,36 @@ class TorrentListMgr:
 		conn.close()
 
 	# ---------------------------------------------------------------------------------
+	def find_file_in_path_and_move(self, src_path, target_path) :
+		for file_name in glob.glob(str(src_path)+'/*/*.mp4'):
+			print file_name + " is checked!!!!!!!!!!!!!!!!!"
+			shutil.move(file_name, target_path)
+		for file_name in glob.glob(str(src_path)+'/*/*.mkv'):
+			print file_name + " is checked!!!!!!!!!!!!!!!!!"
+			shutil.move(file_name, target_path)
+		for file_name in glob.glob(str(src_path)+'/*/*.avi'):
+			print file_name + " is checked!!!!!!!!!!!!!!!!!"
+			shutil.move(file_name, target_path)
+
+	def fix_file_name_path(self, path) :
+		for file in os.listdir(str(unicode(path))) :
+                        full_filename = os.path.join(str(unicode(path)), str(file))
+                        if os.path.isdir(full_filename) :
+                                print full_filename + " is dir..."
+				self.find_file_in_path_and_move(full_filename, str(unicode(path)))
+				shutil.rmtree(full_filename, ignore_errors=True)
+                        else :
+				if file.find(' ') >= 0 : 
+					print full_filename + " has space... remove space from file names.."
+					file_rename = file.replace(" ","")
+					shutil.move(full_filename, os.path.join(str(unicode(path)), str(file_rename)))
+                                print full_filename + " is file.."
+
 	def check_file_exist(self, path, date, name) :
 		torrent_file_target_date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
 		torrent_file_target_date = torrent_file_target_date.strftime("%02y%02m%02d")
 
+		self.fix_file_name_path(path)
 		# torrent_log.debug_msg_print("check_file path : " + path + " ==> " + torrent_file_target_date)
 
 		title_words = name.split(' ')
