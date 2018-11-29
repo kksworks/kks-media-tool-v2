@@ -22,16 +22,18 @@ TM_SETTING_ID=${USER_CONF__TRANSMISSION_ID}
 TM_SETTING_PASS=${USER_CONF__TRANSMISSION_PW}
 #---------------------------------
 
+COMPLETE_TORRENT_DIR=${TR_TORRENT_DIR}
+
 # move sub dir in files
-find ${TR_TORRENT_DIR} -mindepth 2 -name "*.mp4"  -exec mv {} ${TR_TORRENT_DIR} \;
-find ${TR_TORRENT_DIR} -mindepth 2 -name "*.avi"  -exec mv {} ${TR_TORRENT_DIR} \;
-find ${TR_TORRENT_DIR} -mindepth 2 -name "*.mkv"  -exec mv {} ${TR_TORRENT_DIR} \;
+find "${TR_TORRENT_DIR}" -mindepth 2 -name "*.mp4"  -exec mv {} "${TR_TORRENT_DIR}" \;
+find "${TR_TORRENT_DIR}" -mindepth 2 -name "*.avi"  -exec mv {} "${TR_TORRENT_DIR}" \;
+find "${TR_TORRENT_DIR}" -mindepth 2 -name "*.mkv"  -exec mv {} "${TR_TORRENT_DIR}" \;
 
 # remove sub dir..
-find ${TR_TORRENT_DIR} -mindepth 1 -type d -exec rm -r {} \;
+find "${TR_TORRENT_DIR}" -mindepth 1 -type d -exec rm -r {} \;
 
 # file name remove
-find ${TR_TORRENT_DIR} -name "* *" -execdir rename 's/ //g' "{}" \;
+find "${TR_TORRENT_DIR}" -name "* *" -execdir rename 's/ //g' "{}" \;
 
 # remove complete torrent
 $MAIN_WORK_DIR/tools/torrent_del_complete.sh
