@@ -453,8 +453,9 @@ class TorrentListMgr:
 
 		magnet = str(unicode(magnet))
 
-		runcmd = "transmission-remote --auth %s:%s --add \"%s\" --download-dir \"%s\"" %(tm_id, tm_pass, magnet, path)
-		
+		runcmd = "transmission-remote --auth %s:%s --add \"%s\" --download-dir \"%s\ "" %(tm_id, tm_pass, magnet, path)
+		runcmd = runcmd + "--torrent-done-script /home/torrent_mgr/tools/torrent_complete_tv_show.sh"
+
 		p = subprocess.Popen(runcmd, stdout=subprocess.PIPE, shell=True)
 
 		process_ret = p.stdout.read()
