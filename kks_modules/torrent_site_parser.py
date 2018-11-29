@@ -170,10 +170,14 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 	# print "     -> url : "  + 	content_info['url'] 
 	end_detect_date = end_date
 
-	if target_date < end_detect_date : 
+	try :
+		if target_date < end_detect_date : 
+			return "pass-date"
+		else :
+			return "true"
+	except Exception, e:
 		return "pass-date"
-	else :
-		return "true"
+		
 
 def get_margnet_str(target_url) :
 	print "   ->> chk marget target url : " + target_url
