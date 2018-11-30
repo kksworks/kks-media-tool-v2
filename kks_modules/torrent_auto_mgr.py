@@ -103,8 +103,11 @@ def _torrent_down_target_site(site_idx) :
 				if torrent_id is None :
 					continue
 				
-				content_info['url'] = content_info['url'].replace("..", str(site_info['torrent_site']))
-
+				if content_info['url'].find("..") >= 0 :
+					content_info['url'] = content_info['url'].replace("..", str(site_info['torrent_site']))
+				elif not (content_info['url'].find(str(site_info['torrent_site'])) >= 0) :
+					content_info['url'] = str(site_info['torrent_site']) + content_info['url']
+	
 				magnet_text = torrent_site_parser.get_margnet_str(content_info['url'])
 				if magnet_text is None :
 					torrent_log.log_save_err__torrent_site(str(site_info['id']), "마그넷주소없음 : " + content_info['url'])
