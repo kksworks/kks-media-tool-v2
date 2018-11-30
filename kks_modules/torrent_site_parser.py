@@ -83,9 +83,14 @@ def read_content_by_site_info(site_info, gene, end_date, page_no, content_info_l
 	for table in tables:
 		if table.findParent("table") is None:
 			found_date = False
-			tmp_chk_table = table.findAll(text=table_chk_str) 
-			if len(tmp_chk_table) <= 0 :
-				continue
+			
+			if not (table_chk_str == "null" >= 0) :
+				print "table check string..." + table_chk_str
+				tmp_chk_table = table.findAll(text=table_chk_str) 
+				if len(tmp_chk_table) <= 0 :
+					continue
+			else :
+				print "table check string skip"
 			
 			for row in table.findAll("tr"):
 				cells = row.findAll("td")
