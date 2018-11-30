@@ -71,7 +71,7 @@ def _torrent_down_target_site(site_idx) :
 
 			end_date = torent_list_mgr.chk_oldest_date(genre_name)
 
-			for i in range(0, site_info['max_search_page']) : 
+			for i in range(1, site_info['max_search_page']) : 
 
 				if parse_fail_cnt > MAX_FAIL_CHK_CNT :
 					torrent_log.debug_msg_print(" >> 사이트 응답없음 : 종료")
@@ -211,7 +211,11 @@ def chk_parse_site(site_idx) :
 			parse_result_1['title'] = content_info['title']
 
 			
-			content_info['url'] = content_info['url'].replace("..", str(site_info['torrent_site']))
+			if content_info['url'].find("..") >= 0 :
+				content_info['url'] = content_info['url'].replace("..", str(site_info['torrent_site']))
+			elif not (content_info['url'].find(str(site_info['torrent_site'])) >= 0) :
+				content_info['url'] = str(site_info['torrent_site']) + content_info['url']
+	
 			
 			magnet_text = torrent_site_parser.get_margnet_str(content_info['url'])
 			if magnet_text is None :

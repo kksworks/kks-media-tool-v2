@@ -22,7 +22,7 @@ if __name__ == "__main__":
     #    print "magnet : " + test_result['magnet']
     #    print "----------------------------"
     
-#    torrent_auto_mgr.chk_parse_site(3)
+#    torrent_auto_mgr.chk_parse_site(5)
     main_program.main_loop_torrent_run()
 
 #print "test end?"

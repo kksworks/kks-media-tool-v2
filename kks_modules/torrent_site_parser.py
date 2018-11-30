@@ -212,6 +212,15 @@ def get_margnet_str(target_url) :
 		magnet_link = str(get_link.get('href'))
 		if (magnet_link.find("magnet") >= 0) :
 			return magnet_link
+
+	ifrmame_tags = soup.find_all('iframe')
+	for ifrmame_tag in ifrmame_tags:
+		print ifrmame_tag
+		ifrmame_src = str(ifrmame_tag.get('src'))
+		magnet_link = get_margnet_str(ifrmame_src)
+		if magnet_link != None : 
+			print magnet_link
+			return magnet_link
 	
 	return None
 
