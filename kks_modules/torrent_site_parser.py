@@ -215,7 +215,7 @@ def get_margnet_str(target_url) :
 	get_links = soup.find_all("a")
 	for get_link in get_links:
 		magnet_link = str(get_link.get('href'))
-		if (magnet_link.find("magnet") >= 0) :
+		if (magnet_link.find("magnet") >= 0) and (magnet_link.find("magnet:?xt=urn:") >= 0) :
 			return magnet_link
 
 	ifrmame_tags = soup.find_all('iframe')
